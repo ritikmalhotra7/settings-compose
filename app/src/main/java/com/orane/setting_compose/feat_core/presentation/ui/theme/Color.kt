@@ -1,4 +1,4 @@
-package com.orane.setting_compose.ui.theme
+package com.orane.setting_compose.feat_core.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
