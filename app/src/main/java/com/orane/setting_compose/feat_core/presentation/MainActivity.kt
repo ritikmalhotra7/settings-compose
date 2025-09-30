@@ -2,9 +2,10 @@ package com.orane.setting_compose.feat_core.presentation.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
+import androidx.activity.SystemBarStyle.Companion.auto
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -16,11 +17,10 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.navigation.compose.rememberNavController
 import com.orane.setting_compose.feat_core.domain.controllers.SnackBarController
 import com.orane.setting_compose.feat_core.presentation.navigation.NavGraph
@@ -35,8 +35,8 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var snackBarController: SnackBarController
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        super.onCreate(savedInstanceState)
         setContent {
             val mainNavController = rememberNavController()
             val snackBarHostState = remember { SnackbarHostState() }
@@ -44,8 +44,7 @@ class MainActivity : ComponentActivity() {
             SettingComposeTheme {
                 Surface(
                     modifier = Modifier
-                        .fillMaxSize()
-                        .statusBarsPadding(),
+                        .fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
                     ObserveAsEvent(

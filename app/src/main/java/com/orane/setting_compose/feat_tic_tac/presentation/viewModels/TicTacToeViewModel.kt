@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.orane.setting_compose.feat_tic_tac.utils.CellState
 import com.orane.setting_compose.feat_tic_tac.utils.Constants
+import com.orane.setting_compose.feat_tic_tac.utils.Constants.CELL_COUNT
+import com.orane.setting_compose.feat_tic_tac.utils.Constants.GRID_SIZE
 import com.orane.setting_compose.feat_tic_tac.utils.Player
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,7 +25,7 @@ class TicTacToeViewModel @Inject constructor():ViewModel() {
     private val mCircleScore = MutableStateFlow(0)
     val circleScore = mCircleScore.asStateFlow()
 
-    private val mCellsState = MutableStateFlow<List<CellState>>(List<CellState>(9){CellState.Empty})
+    private val mCellsState = MutableStateFlow<List<CellState>>(List<CellState>(CELL_COUNT){CellState.Empty})
     val cellsState = mCellsState.asStateFlow()
 
     private val mIndicatorIndex = MutableStateFlow<Int?>(null)
@@ -55,6 +57,7 @@ class TicTacToeViewModel @Inject constructor():ViewModel() {
             var count = 0
             while (r in 0 until n && c in 0 until n) {
                 val idx = r * n + c
+                Log.d("taget-idx",idx.toString())
                 if (cellsState.value[idx] == player) {
                     count++
                     r += dr

@@ -12,7 +12,7 @@ import com.orane.setting_compose.feat_core.presentation.navigation.Screen
 
 @Composable
 fun HomeScreen(navController: NavHostController, modifier: Modifier = Modifier) {
-    val itemList = listOf(Pair("Tic Tac Toe", Screen.TicTacToeScreen))
+    val itemList = listOf(Pair("Tic Tac Toe", Screen.TicTacToeScreen),Pair("IOT",Screen.IOTScreen), Pair("ReCompose",Screen.ReComposeScreen))
     LazyColumn(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -22,17 +22,8 @@ fun HomeScreen(navController: NavHostController, modifier: Modifier = Modifier) 
             HomeScreenButton(
                 text = itemList[position].first,
                 isEnabled = true,
-                onClick = {
-                    when (itemList[position].second) {
-                        Screen.TicTacToeScreen -> {
-                            navController.navigate(Screen.TicTacToeScreen.route)
-                        }
-
-                        else -> {}
-                    }
-                })
-
-
+                onClick = { navController.navigate(itemList[position].second.route) }
+            )
         }
     }
 }

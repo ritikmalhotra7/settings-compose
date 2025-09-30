@@ -69,7 +69,7 @@ fun TicTacToeBoard(
             val lineStrokeWidth = lineWidth.toPx()
 
             // Vertical lines
-            for (i in 1..2) {
+            for (i in 1..<GRID_SIZE) {
                 drawLine(
                     color = lineColor,
                     start = Offset(x = (canvasWidth / Constants.GRID_SIZE) * i, y = 0f),
@@ -79,11 +79,11 @@ fun TicTacToeBoard(
             }
 
             // Horizontal lines
-            for (i in 1..2) {
+            for (i in 1..<GRID_SIZE) {
                 drawLine(
                     color = lineColor,
-                    start = Offset(x = 0f, y = (canvasHeight / 3) * i),
-                    end = Offset(x = canvasWidth, y = (canvasHeight / 3) * i),
+                    start = Offset(x = 0f, y = (canvasHeight / GRID_SIZE) * i),
+                    end = Offset(x = canvasWidth, y = (canvasHeight / GRID_SIZE) * i),
                     strokeWidth = lineStrokeWidth
                 )
             }
