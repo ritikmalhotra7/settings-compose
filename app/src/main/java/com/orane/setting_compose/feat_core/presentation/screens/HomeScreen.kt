@@ -12,7 +12,7 @@ import com.orane.setting_compose.feat_core.presentation.navigation.Screen
 
 @Composable
 fun HomeScreen(navController: NavHostController, modifier: Modifier = Modifier) {
-    val itemList = listOf(Pair("Tic Tac Toe", Screen.TicTacToeScreen),Pair("IOT",Screen.IOTScreen), Pair("ReCompose",Screen.ReComposeScreen))
+    val itemList = listOf(Pair("Tic Tac Toe", Screen.TicTacToeScreen), Pair("ReCompose",Screen.ReComposeScreen), Pair("Scanner",Screen.ScannerScreen))
     LazyColumn(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,

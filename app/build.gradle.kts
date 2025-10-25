@@ -21,9 +21,20 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = file(project.properties["KEY_STORE_FILE"] as String)
+            storePassword = project.properties["KEY_STORE_PASSWORD"] as String
+            keyAlias = project.properties["KEY_ALIAS"] as String
+            keyPassword = project.properties["KEY_ALIAS_PASSWORD"] as String
+        }
+    }
+
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true // optional
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -73,4 +84,21 @@ dependencies {
 
     // Hilt with Navigation for Compose
     implementation(libs.hilt.navigation.compose)
+
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+
+    // 1. Coroutines Test Dispatcher and runTest scope
+    testImplementation(libs.kotlinx.coroutines.test)
+    // 2. Used for InstantTaskExecutorRule (if testing LiveData alongside Flows)
+    testImplementation(libs.androidx.arch.core.testing)
+    // 3. JUnit 5 API and Engine for running tests
+    testImplementation(libs.junit5.api)
+    testRuntimeOnly(libs.junit5.engine)
+
+    //Zxing
+    implementation(libs.zxing.core)
 }

@@ -8,12 +8,16 @@ espressoCore = "3.7.0"
 lifecycleRuntimeKtx = "2.9.3"
 activityCompose = "1.10.1"
 composeBom = "2024.09.00"
-
-accompanist = "0.36.0"
 serialization = "1.6.3"
 navigation = "2.8.2"
 hilt = "2.51.1"
 hiltNavigationCompose = "1.2.0"
+retrofit = "2.11.0"
+okhttp = "4.12.0"
+coroutinesTest = "1.7.3"
+archCoreTest = "2.2.0"
+junit5 = "5.10.0"
+zxingCore = "4.3.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -31,20 +35,32 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3"}
 androidx-material = { group = "androidx.compose.material", name = "material"}
-
 #serialization
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
-
 # Navigation for Compose
 navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
-
 # Hilt (core + compiler)
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
-
 # Hilt Navigation Compose
 hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
-
+# Retrofit Core
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+# Retrofit Gson Converter
+retrofit-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+# OkHttp Core
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+# OkHttp Logging Interceptor
+okhttp-logging = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+# Coroutine testing
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest" }
+# Architecture components (for LiveData/ViewModel testing)
+androidx-arch-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "archCoreTest" }
+# JUnit 5 Dependencies
+junit5-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit5" }
+junit5-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit5" }
+#Zxing
+zxing-core = { group = "com.journeyapps", name = "zxing-android-embedded", version.ref = "zxingCore" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
